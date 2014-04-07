@@ -107,6 +107,11 @@ The available configuration parameters are described below:
 Parameter        Data type          Default Value    Effect
 ================ ================== ================ ======
 mode             string             standard         
+rho              double             1.0              Distance resolution of the accumulator in pixels
+theta            double             180              Angle resolution of the accumulator in radians
+threshold        double             100              The accumulator threshold parameter. Only those lines are returned that get enough votes ( >\texttt{threshold} )
+srn              double             0                For the multi-scale Hough transform it is the divisor for the distance resolution rho .The coarse accumulator distance resolution will be rho and the accurate accumulator resolution will be rho/srn . If both srn=0 and stn=0 then the classical Hough transform is used, otherwise both these parameters should be positive.
+stn              double             0                For the multi-scale Hough transform it is the divisor for the distance resolution theta
 ================ ================== ================ ======
 
 Ports

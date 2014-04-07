@@ -10,26 +10,27 @@
 #ifndef IMAGEHOUGH_H
 #define IMAGEHOUGH_H
 
-#include <rtm/Manager.h>
-#include <rtm/DataFlowComponentBase.h>
-#include <rtm/CorbaPort.h>
-#include <rtm/DataInPort.h>
-#include <rtm/DataOutPort.h>
 #include <rtm/idl/BasicDataTypeSkel.h>
 #include <rtm/idl/ExtendedDataTypesSkel.h>
 #include <rtm/idl/InterfaceDataTypesSkel.h>
-
-// Service implementation headers
-// <rtc-template block="service_impl_h">
-
-// </rtc-template>
-
 // Service Consumer stub headers
 // <rtc-template block="consumer_stub_h">
 #include "ImgStub.h"
 #include "ImgStub.h"
 
 // </rtc-template>
+
+#include <rtm/Manager.h>
+#include <rtm/DataFlowComponentBase.h>
+#include <rtm/CorbaPort.h>
+#include <rtm/DataInPort.h>
+#include <rtm/DataOutPort.h>
+
+// Service implementation headers
+// <rtc-template block="service_impl_h">
+
+// </rtc-template>
+#include <opencv2/opencv.hpp>
 
 using namespace RTC;
 using namespace Img;
@@ -232,6 +233,43 @@ class ImageHough
    * - DefaultValue: standard
    */
   std::string m_mode;
+  /*!
+   * Distance resolution of the accumulator in pixels
+   * - Name:  rho
+   * - DefaultValue: 1.0
+   */
+  double m_rho;
+  /*!
+   * Angle resolution of the accumulator in radians
+   * - Name:  theta
+   * - DefaultValue: 180
+   */
+  double m_theta;
+  /*!
+   * The accumulator threshold parameter. Only those lines arereturned that get enough votes ( >
+   * \texttt{threshold} )
+   * - Name:  threshold
+   * - DefaultValue: 100
+   */
+  double m_threshold;
+  /*!
+   * For the multi-scale Hough transform it is the divisor for
+   * the distance resolution rho .The coarse accumulator distance
+   * resolution will be rho and the accurate accumulator
+   * resolution will be rho/srn . If both srn=0 and stn=0 then
+   * the classical Hough transform is used, otherwise both these
+   * parameters should be positive.
+   * - Name:  srn
+   * - DefaultValue: 0
+   */
+  double m_srn;
+  /*!
+   * For the multi-scale Hough transform it is the divisor for
+   * the distance resolution theta
+   * - Name:  stn
+   * - DefaultValue: 0
+   */
+  double m_stn;
 
   // </rtc-template>
 
@@ -287,6 +325,10 @@ class ImageHough
   
   // </rtc-template>
 
+  cv::Mat m_srcImage;
+  //CvMemStorage *m_pStorage;
+  std::vector<cv::Vec2f> m_Lines;
+  cv::Mat m_grayImage;
 };
 
 

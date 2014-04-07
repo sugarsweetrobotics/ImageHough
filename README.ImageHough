@@ -155,6 +155,58 @@ Lang Type:
 		Range:           
 		Constraint:      
 
+		Name:             rho
+		Description:     Distance resolution of the accumulator in
+		                 pixels
+		Type:            double
+		DefaultValue:     1.0
+		Unit:            
+		Range:           
+		Constraint:      
+
+		Name:             theta
+		Description:     Angle resolution of the accumulator in
+		                 radians
+		Type:            double
+		DefaultValue:     180
+		Unit:            
+		Range:           
+		Constraint:      
+
+		Name:             threshold
+		Description:     The accumulator threshold parameter. Onlythose lines are returned that get enoughvotes ( >
+		                 \texttt{threshold} )
+		Type:            double
+		DefaultValue:     100
+		Unit:            
+		Range:           
+		Constraint:      
+
+		Name:             srn
+		Description:     For the multi-scale Hough transform it is
+		                 the divisor for the distance resolution rho
+		                 .The coarse accumulator distance resolution
+		                 will be rho and the accurate accumulator
+		                 resolution will be rho/srn . If both srn=0
+		                 and stn=0 then the classical Hough transform
+		                 is used, otherwise both these parameters
+		                 should be positive.
+		Type:            double
+		DefaultValue:     0
+		Unit:            
+		Range:           
+		Constraint:      
+
+		Name:             stn
+		Description:     For the multi-scale Hough transform it is
+		                 the divisor for the distance resolution
+		                 theta
+		Type:            double
+		DefaultValue:     0
+		Unit:            
+		Range:           
+		Constraint:      
+
 # </rtc-template> 
 
 This software is developed at the National Institute of Advanced

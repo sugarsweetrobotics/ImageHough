@@ -41,6 +41,26 @@
             </rtc:Constraint>
             <rtcExt:Properties rtcExt:value="spin." rtcExt:name="__widget__"/>
         </rtc:Configuration>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="rho" rtc:unit="" rtc:defaultValue="1.0" rtc:type="double" rtc:name="rho">
+            <rtcDoc:Doc rtcDoc:constraint="" rtcDoc:range="" rtcDoc:unit="" rtcDoc:description="Distance resolution of the accumulator in pixels" rtcDoc:defaultValue="" rtcDoc:dataname=""/>
+            <rtcExt:Properties rtcExt:value="text" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="theta" rtc:unit="" rtc:defaultValue="180" rtc:type="double" rtc:name="theta">
+            <rtcDoc:Doc rtcDoc:constraint="" rtcDoc:range="" rtcDoc:unit="" rtcDoc:description="Angle resolution of the accumulator in radians" rtcDoc:defaultValue="" rtcDoc:dataname=""/>
+            <rtcExt:Properties rtcExt:value="text" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="threshold" rtc:unit="" rtc:defaultValue="100" rtc:type="double" rtc:name="threshold">
+            <rtcDoc:Doc rtcDoc:constraint="" rtcDoc:range="" rtcDoc:unit="" rtcDoc:description="The accumulator threshold parameter. Only those lines are returned that get enough votes ( &gt;\texttt{threshold} )" rtcDoc:defaultValue="" rtcDoc:dataname=""/>
+            <rtcExt:Properties rtcExt:value="text" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="srn" rtc:unit="" rtc:defaultValue="0" rtc:type="double" rtc:name="srn">
+            <rtcDoc:Doc rtcDoc:constraint="" rtcDoc:range="" rtcDoc:unit="" rtcDoc:description="For the multi-scale Hough transform it is the divisor for the distance resolution rho .The coarse accumulator distance resolution will be rho and the accurate accumulator resolution will be rho/srn . If both srn=0 and stn=0 then the classical Hough transform is used, otherwise both these parameters should be positive." rtcDoc:defaultValue="" rtcDoc:dataname=""/>
+            <rtcExt:Properties rtcExt:value="text" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="stn" rtc:unit="" rtc:defaultValue="0" rtc:type="double" rtc:name="stn">
+            <rtcDoc:Doc rtcDoc:constraint="" rtcDoc:range="" rtcDoc:unit="" rtcDoc:description="For the multi-scale Hough transform it is the divisor for the distance resolution theta" rtcDoc:defaultValue="" rtcDoc:dataname=""/>
+            <rtcExt:Properties rtcExt:value="text" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
     </rtc:ConfigurationSet>
     <rtc:DataPorts xsi:type="rtcExt:dataport_ext" rtcExt:position="LEFT" rtcExt:variableName="" rtc:unit="" rtc:subscriptionType="" rtc:dataflowType="" rtc:interfaceType="" rtc:idlFile="" rtc:type="Img::TimedCameraImage" rtc:name="in" rtc:portType="DataInPort"/>
     <rtc:DataPorts xsi:type="rtcExt:dataport_ext" rtcExt:position="RIGHT" rtcExt:variableName="" rtc:unit="" rtc:subscriptionType="" rtc:dataflowType="" rtc:interfaceType="" rtc:idlFile="" rtc:type="Img::TimedCameraImage" rtc:name="out" rtc:portType="DataOutPort"/>
